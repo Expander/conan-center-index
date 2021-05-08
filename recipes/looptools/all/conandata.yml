@@ -1,0 +1,4 @@
+sources:
+  "2.16":
+    url: "http://www.feynarts.de/looptools/LoopTools-2.16.tar.gz"
+    sha256: "228d4ced8bc9a0e3a51e788b290e75e85691e0dedd0bb117bcd379c85fd7b683"
