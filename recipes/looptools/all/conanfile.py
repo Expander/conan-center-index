@@ -49,7 +49,6 @@ class Gm2calcConan(ConanFile):
     def _configure_autotools(self):
         if self._autotools:
             return self._autotools
-
         self._autotools = AutoToolsBuildEnvironment(self)
         self._autotools.configure(build=False,
                                   host=False,
@@ -61,6 +60,8 @@ class Gm2calcConan(ConanFile):
         self.copy(pattern="COPYING", dst="licenses", src=self._source_subfolder)
         autotools = self._configure_autotools()
         autotools.install()
+        tools.rename(os.path.join(self.package_folder, "lib64"),
+                     os.path.join(self.package_folder, "lib"))
 
     def package_info(self):
         self.cpp_info.names["cmake_find_package"] = "LoopTools"
